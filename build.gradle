@@ -1,0 +1,15 @@
+group 'sirdir.org'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'javax.servlet:servlet-api:2.5'
+    testCompile 'junit:junit:4.12'
+}
