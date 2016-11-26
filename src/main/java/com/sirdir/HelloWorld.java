@@ -6,21 +6,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 // Extend HttpServlet class
-// https://www.tutorialspoint.com/servlets/servlets-first-example.htm
 public class HelloWorld extends HttpServlet {
 
     private String message;
 
-    public void init() throws ServletException
-    {
+    public void init() throws ServletException {
         // Do required initialization
         message = "Hello World";
     }
 
-    public void doGet(HttpServletRequest request,
-                      HttpServletResponse response)
-            throws ServletException, IOException
-    {
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         // Set response content type
         response.setContentType("text/html");
 
