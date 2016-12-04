@@ -8,6 +8,10 @@ sourceCompatibility = 1.7
 repositories {
     jcenter()
 }
+processResources {
+    File configFile = file(new File('build/classes/main'))
+    destinationDir(configFile)
+}
 
 dependencies {
     compile 'javax.servlet:servlet-api:2.5'
