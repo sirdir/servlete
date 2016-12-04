@@ -32,4 +32,11 @@ public class HelloForm extends HttpServlet {
                 "</ul>\n" +
                 "</body></html>");
     }
+
+    //handle POST
+    public void doPost(HttpServletRequest request,
+                       HttpServletResponse response)
+            throws ServletException, IOException {
+        doGet(request, response);
+    }
 }
