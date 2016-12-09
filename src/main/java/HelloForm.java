@@ -7,10 +7,12 @@ import java.io.*;
  */
 public class HelloForm extends HttpServlet {
 
+    @Override
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
             throws ServletException, IOException
     {
+        System.out.println("doing get");
         // Set response content type
         response.setContentType("text/html");
 
@@ -34,9 +36,11 @@ public class HelloForm extends HttpServlet {
     }
 
     //handle POST
+    @Override
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
+        System.out.println("doing post");
+        this.doGet(request, response);
     }
 }
