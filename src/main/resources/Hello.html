@@ -6,23 +6,43 @@
     <link rel="stylesheet" type="text/css" href="flexbox.css">
 </head>
 <body>
-<div id="container">
-<div id="left">
+<div id="container_top">
+<div>
 <h1>GET</h1>
-<form action="HelloForm" method="GET">
+<form id="left_top">
     First Name: <input type="text" name="first_name">
     <br />
     Last Name: <input type="text" name="last_name" />
-    <input type="submit" value="Submit" />
+</form>
+    <button form="left_top" type="submit" formaction="HelloForm" formmethod="get">GET</button>
+</div>
+<div>
+<h1>POST</h1>
+<form id="right_top">
+    First Name: <input type="text" name="first_name">
+    <br />
+    Last Name: <input type="text" name="last_name" />
+</form>
+    <button form="right_top" type="submit" formaction="HelloForm" formmethod="post">POST</button>
+</div>
+</div>
+<div id="container_bottom">
+<div id="left_bottom">
+<h1>GET</h1>
+<form action="HelloForm">
+    First Name: <input type="text" name="first_name">
+    <br />
+    Last Name: <input type="text" name="last_name" />
+    <button type="submit">Send GET</button>
 </form>
 </div>
-<div id="right">
+<div id="right_bottom">
 <h1>POST</h1>
 <form action="HelloForm" method="POST">
     First Name: <input type="text" name="first_name">
     <br />
     Last Name: <input type="text" name="last_name" />
-    <input type="submit" value="Submit" />
+    <button type="submit">Send POST</button>
 </form>
 </div>
 </div>
