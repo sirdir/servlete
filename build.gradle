@@ -11,11 +11,10 @@ repositories {
 task myCopy()
 
 myCopy {
-//    doFirst(){
-//        mkdir -p "$CATALINA_HOME/webapps/ROOT/WEB-INF/classes/"
-//    }
-    copy{
+    doFirst(){
         mkdir "$System.env.CATALINA_HOME/webapps/ROOT/WEB-INF/classes"
+    }
+    copy{
         from 'build/resources/main'
         into "$System.env.CATALINA_HOME/webapps/ROOT/WEB-INF/classes"
         include('*.class')
