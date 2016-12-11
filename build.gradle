@@ -15,6 +15,7 @@ myCopy {
 //        mkdir -p "$CATALINA_HOME/webapps/ROOT/WEB-INF/classes/"
 //    }
     copy{
+        new File("$System.env.CATALINA_HOME/webapps/ROOT/WEB-INF/classes")
         from 'build/resources/main'
         into "$System.env.CATALINA_HOME/webapps/ROOT/WEB-INF/classes"
         include('*.class')
