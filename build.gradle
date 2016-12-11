@@ -8,10 +8,35 @@ sourceCompatibility = 1.7
 repositories {
     jcenter()
 }
-processResources {
-    File configFile = file(new File('build/classes/main'))
-    destinationDir(configFile)
+task myCopy()
+
+myCopy {
+//    doFirst(){
+//        mkdir -p "$CATALINA_HOME/webapps/ROOT/WEB-INF/classes/"
+//    }
+    copy{
+        from 'build/resources/main'
+        into "$System.env.CATALINA_HOME/webapps/ROOT/WEB-INF/classes"
+        include('*.class')
+    }
+    copy{
+        from 'build/resources/main'
+        into "$System.env.CATALINA_HOME/webapps/ROOT"
+        include('*.html')
+    }
+    copy{
+        from 'build/resources/main'
+        into "$System.env.CATALINA_HOME/webapps/ROOT/WEB-INF"
+        include('web.xml')
+    }
 }
+//processResources {
+//    File configFile = file(new File('build/classes/main'))
+//    destinationDir(configFile)
+//}
+
+build.finalizedBy myCopy
+compileJava.dependsOn clean
 
 dependencies {
     compile 'javax.servlet:servlet-api:2.5'
