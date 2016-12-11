@@ -15,14 +15,14 @@ myCopy {
         mkdir "$System.env.CATALINA_HOME/webapps/ROOT/WEB-INF/classes"
     }
     copy{
-        from 'build/resources/main'
+        from 'build/classes/main'
         into "$System.env.CATALINA_HOME/webapps/ROOT/WEB-INF/classes"
         include('*.class')
     }
     copy{
         from 'build/resources/main'
         into "$System.env.CATALINA_HOME/webapps/ROOT"
-        include('*.html')
+        include('*.html', '*.css')
     }
     copy{
         from 'build/resources/main'
