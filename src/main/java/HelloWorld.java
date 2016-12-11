@@ -5,13 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-// Extend HttpServlet class
 public class HelloWorld extends HttpServlet {
 
     private String message;
 
     public void init() throws ServletException {
-        // Do required initialization
         message = "Hello World";
     }
 

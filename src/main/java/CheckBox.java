@@ -1,23 +1,19 @@
-import javax.servlet.ServletException;
-import javax.servlet.http.*;
 import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
-/**
- * Created by sirdir on 03.12.16.
- */
-public class HelloForm extends HttpServlet {
+public class CheckBox extends HttpServlet {
 
-    @Override
+    // Method to handle GET method request.
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
             throws ServletException, IOException
     {
-        System.out.println("doing get");
         // Set response content type
         response.setContentType("text/html");
 
         PrintWriter out = response.getWriter();
-        String title = "Using GET Method to Read Form Data";
+        String title = "Reading Checkbox Data";
         String docType =
                 "<!doctype html public \"-//w3c//dtd html 4.0 " +
                         "transitional//en\">\n";
@@ -27,19 +23,19 @@ public class HelloForm extends HttpServlet {
                 "<body bgcolor=\"#f0f0f0\">\n" +
                 "<h1 align=\"center\">" + title + "</h1>\n" +
                 "<ul>\n" +
-                "  <li><b>First Name</b>: "
-                + request.getParameter("first_name") + "\n" +
-                "  <li><b>Last Name</b>: "
-                + request.getParameter("last_name") + "\n" +
+                "  <li><b>Maths Flag : </b>: "
+                + request.getParameter("maths") + "\n" +
+                "  <li><b>Physics Flag: </b>: "
+                + request.getParameter("physics") + "\n" +
+                "  <li><b>Chemistry Flag: </b>: "
+                + request.getParameter("chemistry") + "\n" +
                 "</ul>\n" +
                 "</body></html>");
     }
-
-    @Override
+    // Method to handle POST method request.
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("doing post");
-        this.doGet(request, response);
+        doGet(request, response);
     }
 }
