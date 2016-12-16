@@ -52,7 +52,7 @@ public class ReadParams extends HttpServlet {
                 out.println("</ul>");
             }
         }
-        out.println("</tr>\n</table>\n</body></html>");
+        out.println("</td></tr>\n</table>\n</body></html>");
     }
     // Method to handle POST method request.
     public void doPost(HttpServletRequest request,
