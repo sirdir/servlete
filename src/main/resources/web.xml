@@ -43,7 +43,6 @@
     <servlet-mapping>
         <servlet-name>HelloForm</servlet-name>
         <url-pattern>/HelloForm</url-pattern>
-        <http-method>POST</http-method><!--why the fuck 'http-method' missed in xsd?-->
     </servlet-mapping>
 
     <servlet>
@@ -53,7 +52,6 @@
     <servlet-mapping>
         <servlet-name>CheckBox</servlet-name>
         <url-pattern>/CheckBox</url-pattern>
-        <http-method>POST</http-method><!--why the fuck 'http-method' missed in xsd?-->
     </servlet-mapping>
 
     <servlet>
@@ -63,7 +61,6 @@
     <servlet-mapping>
         <servlet-name>ReadParams</servlet-name>
         <url-pattern>/ReadParams</url-pattern>
-        <http-method>POST</http-method><!--why the fuck 'http-method' missed in xsd?-->
     </servlet-mapping>
 
 </web-app>
