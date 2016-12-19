@@ -33,10 +33,10 @@ public class SqlOnline extends HttpServlet {
             PrintWriter writer = response.getWriter();
             writer.append("<!DOCTYPE html>")
                     .append("<html>")
-                    .append("<header>")
+                    .append("<head>")
                     .append("<meta charset=\"UTF-8\">")
                     .append("<title>Power of SQLite</title>")
-                    .append("</header>")
+                    .append("</head>")
                     .append("<body>")
                     .append("<ul>");
             ResultSet resultSet = statement.executeQuery("SELECT * FROM table_with_names");
