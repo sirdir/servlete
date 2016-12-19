@@ -24,7 +24,7 @@ public class SqlOnline extends HttpServlet {
             statement.executeUpdate("INSERT INTO table_with_names VALUES (2, 'bill')");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            System.out.println("pizda");
+            System.err.println("pizda");
         }
     }
 
