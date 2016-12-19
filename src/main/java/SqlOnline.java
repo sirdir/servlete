@@ -17,8 +17,10 @@ public class SqlOnline extends HttpServlet {
     public void init(){
         try {
             Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:~/servlete/build/src/main/resources/temp.sqlite");
+            connection = DriverManager.getConnection("jdbc:sqlite::memory");
             statement = connection.createStatement();
+            statement.executeUpdate("CREATE table village (id int, name varchar(20))");
+            statement.executeUpdate("INSERT INTO table_with_names VALUES (2, 'fill')");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
