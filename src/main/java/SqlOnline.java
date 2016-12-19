@@ -24,6 +24,7 @@ public class SqlOnline extends HttpServlet {
             statement.executeUpdate("INSERT INTO table_with_names VALUES (2, 'bill')");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+            System.out.println("pizda");
         }
     }
 
@@ -49,6 +50,7 @@ public class SqlOnline extends HttpServlet {
                     .append("</html>");
         } catch (IOException|SQLException e) {
             e.printStackTrace();
+            System.out.println("jopa");
         }
     }
 
@@ -56,6 +58,7 @@ public class SqlOnline extends HttpServlet {
     public void destroy(){
         try {
             connection.close();
+            System.out.println("noga");
         } catch (SQLException e) {
             e.printStackTrace();
         }
