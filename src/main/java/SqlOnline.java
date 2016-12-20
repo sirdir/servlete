@@ -13,21 +13,6 @@ public class SqlOnline extends HttpServlet {
     private Connection connection;
     private Statement statement;
 
-    @Override
-    public void init(){
-        try {
-            Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:/usr/local/tomcat/webapps/ROOT/temp.sqlite");
-            statement = connection.createStatement();
-//            statement.executeUpdate("CREATE table table_with_names (id int, name text)");
-//            statement.executeUpdate("INSERT INTO table_with_names VALUES (1, 'fill')");
-//            statement.executeUpdate("INSERT INTO table_with_names VALUES (2, 'bill')");
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            System.err.println("pizda");
-        }
-    }
-
     public void doGet(HttpServletRequest request, HttpServletResponse response){
         try {
             PrintWriter writer = response.getWriter();
@@ -39,6 +24,12 @@ public class SqlOnline extends HttpServlet {
                     .append("</head>")
                     .append("<body>")
                     .append("<ul>");
+            Class.forName("org.sqlite.JDBC");
+            connection = DriverManager.getConnection("jdbc:sqlite:/usr/local/tomcat/webapps/ROOT/temp.sqlite");
+            statement = connection.createStatement();
+//            statement.executeUpdate("CREATE table table_with_names (id int, name text)");
+//            statement.executeUpdate("INSERT INTO table_with_names VALUES (1, 'fill')");
+//            statement.executeUpdate("INSERT INTO table_with_names VALUES (2, 'bill')");
             ResultSet resultSet = statement.executeQuery("SELECT * FROM list_of_names");
             while (resultSet.next()){
                 writer.append("<li>")
@@ -48,19 +39,17 @@ public class SqlOnline extends HttpServlet {
             writer.append("</ul>")
                     .append("</body>")
                     .append("</html>");
-        } catch (IOException|SQLException e) {
+        } catch (IOException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-            System.out.println("jopa");
         }
-    }
-
-    @Override
-    public void destroy(){
-        try {
-            connection.close();
-            System.out.println("noga");
-        } catch (SQLException e) {
-            e.printStackTrace();
+        finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }
