@@ -22,7 +22,7 @@ myCopy {
     copy{
         from 'build/resources/main'
         into "$System.env.CATALINA_HOME/webapps/ROOT"
-        include('*.html', '*.css')
+        include('*.html', '*.css', 'temp.sqlite')
     }
     copy{
         from 'build/resources/main'
