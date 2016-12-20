@@ -15,29 +15,28 @@ public class DisplayHeader extends HttpServlet {
         PrintWriter out = response.getWriter();
         String title = "HTTP Header Request Example";
 
-        String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " +
-                "transitional//en\">\n";
+        String docType = "<!DOCUMENT html>";
 
-        out.println(docType +
-                "<html>\n" +
-                "<head><title>" + title + "</title></head>\n"+
-                "<body bgcolor=\"#f0f0f0\">\n" +
-                "<h1 align=\"center\">" + title + "</h1>\n" +
-                "<table width=\"100%\" border=\"1\" align=\"center\">\n" +
-                "<tr bgcolor=\"#949494\">\n" +
-                "<th>Header Name</th><th>Header Value(s)</th>\n"+
-                "</tr>\n");
+        out.append(docType)
+                .append("<html>")
+                .append("<head><title>" + title + "</title></head>")
+                .append("<body bgcolor=\"#f0f0f0\">")
+                .append("<h1 align=\"center\">" + title + "</h1>")
+                .append("<table width=\"100%\" border=\"1\" align=\"center\">")
+                .append("<tr bgcolor=\"#949494\">")
+                .append("<th>Header Name</th><th>Header Value(s)</th>")
+                .append("</tr>");
 
         Enumeration headerNames = request.getHeaderNames();
 
         while(headerNames.hasMoreElements()) {
             String paramName = (String)headerNames.nextElement();
-            out.print("<tr><td>" + paramName + "</td>\n");
+            out.append("<tr><td>" + paramName + "</td>");
             String paramValue = request.getHeader(paramName);
-            out.println("<td> " + paramValue + "</td></tr>\n");
+            out.append("<td> " + paramValue + "</td></tr>");
         }
 
-        out.println("</table>\n</body></html>");
+        out.append("</table></body></html>");
     }
 
     // Method to handle POST method request.

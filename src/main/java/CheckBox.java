@@ -17,20 +17,18 @@ public class CheckBox extends HttpServlet {
         String docType =
                 "<!doctype html public \"-//w3c//dtd html 4.0 " +
                         "transitional//en\">\n";
-        out.println(docType +
-                "<html>\n" +
-                "<head><title>" + title + "</title></head>\n" +
-                "<body bgcolor=\"#f0f0f0\">\n" +
-                "<h1 align=\"center\">" + title + "</h1>\n" +
-                "<ul>\n" +
-                "  <li><b>Maths Flag : </b>: "
-                + request.getParameter("maths") + "\n" +
-                "  <li><b>Physics Flag: </b>: "
-                + request.getParameter("physics") + "\n" +
-                "  <li><b>Chemistry Flag: </b>: "
-                + request.getParameter("chemistry") + "\n" +
-                "</ul>\n" +
-                "</body></html>");
+        out.append(docType)
+                .append("<html>")
+                .append("<head><title>" + title + "</title></head>")
+                .append("<body bgcolor=\"#f0f0f0\">")
+                .append("<h1 align=\"center\">" + title + "</h1>")
+                .append("<ul><li><b>Maths Flag : </b>: ")
+                .append(request.getParameter("maths"))
+                .append("  <li><b>Physics Flag: </b>: ")
+                .append(request.getParameter("physics"))
+                .append("  <li><b>Chemistry Flag: </b>: ")
+                .append(request.getParameter("chemistry"))
+                .append("</ul></body></html>");
     }
     // Method to handle POST method request.
     public void doPost(HttpServletRequest request,
