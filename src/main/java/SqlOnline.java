@@ -17,11 +17,11 @@ public class SqlOnline extends HttpServlet {
     public void init(){
         try {
             Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite::memory");
+            connection = DriverManager.getConnection("jdbc:sqlite:/usr/local/tomcat/webapps/ROOT/temp.sqlite");
             statement = connection.createStatement();
-            statement.executeUpdate("CREATE table table_with_names (id int, name text)");
-            statement.executeUpdate("INSERT INTO table_with_names VALUES (1, 'fill')");
-            statement.executeUpdate("INSERT INTO table_with_names VALUES (2, 'bill')");
+//            statement.executeUpdate("CREATE table table_with_names (id int, name text)");
+//            statement.executeUpdate("INSERT INTO table_with_names VALUES (1, 'fill')");
+//            statement.executeUpdate("INSERT INTO table_with_names VALUES (2, 'bill')");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             System.err.println("pizda");
@@ -39,7 +39,7 @@ public class SqlOnline extends HttpServlet {
                     .append("</head>")
                     .append("<body>")
                     .append("<ul>");
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM table_with_names");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM list_of_names");
             while (resultSet.next()){
                 writer.append("<li>")
                         .append(resultSet.getString("name"))
