@@ -72,4 +72,13 @@
         <url-pattern>/DisplayHeader</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>SqlOnline</servlet-name>
+        <servlet-class>SqlOnline</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SqlOnline</servlet-name>
+        <url-pattern>/SqlOnline</url-pattern>
+    </servlet-mapping>
+
 </web-app>
